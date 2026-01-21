@@ -1,0 +1,29 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Animated R Logo -->
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#276DC3;stop-opacity:1">
+        <animate attributeName="stop-color" values="#276DC3;#4A90E2;#276DC3" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#1E5A9A;stop-opacity:1">
+        <animate attributeName="stop-color" values="#1E5A9A;#276DC3;#1E5A9A" dur="3s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+  </defs>
+  
+  <!-- Circle background -->
+  <circle cx="100" cy="100" r="95" fill="url(#blueGrad)" opacity="0.9">
+    <animate attributeName="r" values="90;95;90" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Letter R -->
+  <text x="100" y="140" font-family="Arial, sans-serif" font-size="120" font-weight="bold" fill="white" text-anchor="middle">
+    R
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+  </text>
+  
+  <!-- Rotating circle accent -->
+  <circle cx="100" cy="100" r="80" fill="none" stroke="white" stroke-width="2" opacity="0.3">
+    <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="4s" repeatCount="indefinite"/>
+  </circle>
+</svg>

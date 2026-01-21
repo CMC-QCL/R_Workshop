@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R Workshop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 50px;
+            max-width: 700px;
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        h1 {
+            color: #276DC3;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .subtitle {
+            color: #555;
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .goals {
+            text-align: left;
+            margin-top: 40px;
+        }
+
+        .goals h2 {
+            color: #276DC3;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .goal-item {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 5px solid #276DC3;
+            transition: all 0.3s ease;
+            animation: slideIn 1s ease-out both;
+        }
+
+        .goal-item:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .goal-item:nth-child(3) {
+            animation-delay: 0.7s;
+        }
+
+        .goal-item:nth-child(4) {
+            animation-delay: 0.9s;
+        }
+
+        .goal-item:hover {
+            transform: translateX(10px);
+            background: #e9ecef;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .goal-item h3 {
+            color: #276DC3;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .goal-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .logo {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <!-- R Logo GIF - Using animated SVG -->
+            <img src="r-logo.svg" alt="R Logo" class="logo" id="rLogo">
+        </div>
+        
+        <h1>R Workshop</h1>
+        <p class="subtitle">for learning goals</p>
+        
+        <div class="goals">
+            <h2>What You'll Learn</h2>
+            
+            <div class="goal-item">
+                <h3>📊 R Studio Environment</h3>
+                <p>Get familiar with the R Studio interface and essential tools</p>
+            </div>
+            
+            <div class="goal-item">
+                <h3>💻 Basics of R Programming</h3>
+                <p>Learn fundamental R programming concepts and syntax</p>
+            </div>
+            
+            <div class="goal-item">
+                <h3>📈 Data Manipulation and Visualization</h3>
+                <p>Master data manipulation techniques and create stunning visualizations</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add dynamic animations on scroll or interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            const goalItems = document.querySelectorAll('.goal-item');
+            
+            // Add click event to goal items for interactivity
+            goalItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.style.background = '#276DC3';
+                    this.querySelector('h3').style.color = 'white';
+                    this.querySelector('p').style.color = 'white';
+                    
+                    setTimeout(() => {
+                        this.style.background = '#f8f9fa';
+                        this.querySelector('h3').style.color = '#276DC3';
+                        this.querySelector('p').style.color = '#666';
+                    }, 500);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
