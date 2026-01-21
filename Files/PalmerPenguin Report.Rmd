@@ -1,0 +1,96 @@
+---
+title: "Exploring the Palmer Penguins Dataset"
+author: "Daniel Perez"
+date: "2026-01-14"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+# Global chunk options
+knitr::opts_chunk$set(
+echo = FALSE,
+message = FALSE,
+warning = FALSE
+)
+```
+
+```{r}
+# Load libraries
+library(tidyverse)
+library(palmerpenguins)
+```
+
+# Introduction
+
+![](images/palmer_penguins.png)
+
+In this report, we explore the Palmer Penguins data-set, which contains measurements of penguins from three species observed on islands in Antarctica.
+
+We will:
+
+-   Inspect the structure of the data
+
+-   Summarize key variables
+
+-   Visualize GPA-like outcomes using a boxplot (body mass by species)
+
+# Data preview
+
+First 6 rows
+
+```{r}
+head(penguins)
+```
+
+## Data Wrangling
+
+Some variables contain missing values.\
+
+For this analysis, we will focus on observations with non-missing body mass.
+
+```{r}
+penguins_clean <- penguins %>%
+filter(!is.na(body_mass_g))
+
+head(penguins_clean[,c("species", "body_mass_g")])
+```
+
+## Summary Statistics
+
+Let’s compute the average body mass by species.
+
+```{r}
+penguins_clean %>%
+group_by(species) %>%
+summarize(
+mean_body_mass = mean(body_mass_g),
+sd_body_mass   = sd(body_mass_g),
+individuals = n()
+)
+
+```
+
+## Visualization: Body Mass by Species
+
+We now visualize the distribution of body mass for each penguin species using a **boxplot**.
+
+```{r}
+ggplot(penguins_clean,
+aes(x = species, y = body_mass_g)) +
+geom_boxplot(fill = "skyblue") +
+labs(
+title = "Distribution of Penguin Body Mass by Species",
+x = "Species",
+y = "Body Mass (grams)"
+) +
+theme_minimal()
+
+```
+
+# Message to communicate:
+
+Gentoo species have highest body mass.
+
+*What else?*
