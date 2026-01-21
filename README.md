@@ -1,3 +1,9 @@
+<div class="container">
+        <div class="logo-container">
+            <!-- R Logo GIF - Using animated SVG -->
+            <img src="r-logo.svg" alt="R Logo" class="logo" id="rLogo">
+        </div>
+  
 # R Workshop
 You have data and you need a tool to do something with it. Whether you’re a data scientist, political scientist, economist, or biologist, it’s increasingly apparent that data is ever-present and we need to do a little statistics, a little visualization, and a little manipulation of this data. That is precisely what the programming language R is built for. In this workshop, we will cover the basics of getting started with R and R Studio.
 
